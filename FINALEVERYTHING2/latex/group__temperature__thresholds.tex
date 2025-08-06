@@ -1,0 +1,114 @@
+\doxysection{Temperature-\/\+Based Threshold Configuration}
+\hypertarget{group__temperature__thresholds}{}\label{group__temperature__thresholds}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+
+
+Constants for temperature-\/based alert threshold adjustment.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_gaa1c1e9bf55225d129a6c6732dfb92037}{BASE\+\_\+\+SLOW\+\_\+\+BLINK\+\_\+\+COUNTER}} = 5
+\begin{DoxyCompactList}\small\item\em Base threshold for slow blink alert (at 22°C) \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_ga176833662fbdd60cdc4b46f967135d96}{BASE\+\_\+\+MEDIUM\+\_\+\+BLINK\+\_\+\+COUNTER}} = 8
+\begin{DoxyCompactList}\small\item\em Base threshold for medium blink alert (at 22°C) \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_gacd95e40c02afbdec7bb5b1663b1e2a06}{BASE\+\_\+\+FAST\+\_\+\+BLINK\+\_\+\+COUNTER}} = 12
+\begin{DoxyCompactList}\small\item\em Base threshold for fast blink alert (at 22°C) \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_ga19526fb68b8a93afd00c9e0cfbf90955}{BASE\+\_\+\+CRITICAL\+\_\+\+BLINK\+\_\+\+COUNTER}} = 16
+\begin{DoxyCompactList}\small\item\em Base threshold for critical blink alert (at 22°C) \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{group__temperature__thresholds_gab2f7eea740e0d2b9c5aef7d5e34a192f}{COMFORTABLE\+\_\+\+TEMP}} = 22.\+0
+\begin{DoxyCompactList}\small\item\em Baseline comfortable temperature in Celsius. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{group__temperature__thresholds_gacfd0ab8870613c86729068fd67005cbe}{HOT\+\_\+\+TEMP\+\_\+\+THRESHOLD}} = 30.\+0
+\begin{DoxyCompactList}\small\item\em Temperature above which thresholds decrease significantly. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{group__temperature__thresholds_gace09a09447510eb5ce1df883585c509e}{CRITICAL\+\_\+\+TEMP\+\_\+\+THRESHOLD}} = 35.\+0
+\begin{DoxyCompactList}\small\item\em Temperature above which maximum sensitivity is applied. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_gadf8cb1995af54b6334b287d7daf37032}{ALERT\+\_\+\+STOP\+\_\+\+THRESHOLD}} = 5
+\begin{DoxyCompactList}\small\item\em Counter threshold to enable emergency stop button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Constants for temperature-\/based alert threshold adjustment. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{group__temperature__thresholds_gadf8cb1995af54b6334b287d7daf37032}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}!ALERT\_STOP\_THRESHOLD@{ALERT\_STOP\_THRESHOLD}}
+\index{ALERT\_STOP\_THRESHOLD@{ALERT\_STOP\_THRESHOLD}!Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+\doxysubsubsection{\texorpdfstring{ALERT\_STOP\_THRESHOLD}{ALERT\_STOP\_THRESHOLD}}
+{\footnotesize\ttfamily \label{group__temperature__thresholds_gadf8cb1995af54b6334b287d7daf37032} 
+uint8\+\_\+t ALERT\+\_\+\+STOP\+\_\+\+THRESHOLD = 5}
+
+
+
+Counter threshold to enable emergency stop button. 
+
+\Hypertarget{group__temperature__thresholds_ga19526fb68b8a93afd00c9e0cfbf90955}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}!BASE\_CRITICAL\_BLINK\_COUNTER@{BASE\_CRITICAL\_BLINK\_COUNTER}}
+\index{BASE\_CRITICAL\_BLINK\_COUNTER@{BASE\_CRITICAL\_BLINK\_COUNTER}!Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+\doxysubsubsection{\texorpdfstring{BASE\_CRITICAL\_BLINK\_COUNTER}{BASE\_CRITICAL\_BLINK\_COUNTER}}
+{\footnotesize\ttfamily \label{group__temperature__thresholds_ga19526fb68b8a93afd00c9e0cfbf90955} 
+const uint8\+\_\+t BASE\+\_\+\+CRITICAL\+\_\+\+BLINK\+\_\+\+COUNTER = 16}
+
+
+
+Base threshold for critical blink alert (at 22°C) 
+
+\Hypertarget{group__temperature__thresholds_gacd95e40c02afbdec7bb5b1663b1e2a06}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}!BASE\_FAST\_BLINK\_COUNTER@{BASE\_FAST\_BLINK\_COUNTER}}
+\index{BASE\_FAST\_BLINK\_COUNTER@{BASE\_FAST\_BLINK\_COUNTER}!Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+\doxysubsubsection{\texorpdfstring{BASE\_FAST\_BLINK\_COUNTER}{BASE\_FAST\_BLINK\_COUNTER}}
+{\footnotesize\ttfamily \label{group__temperature__thresholds_gacd95e40c02afbdec7bb5b1663b1e2a06} 
+const uint8\+\_\+t BASE\+\_\+\+FAST\+\_\+\+BLINK\+\_\+\+COUNTER = 12}
+
+
+
+Base threshold for fast blink alert (at 22°C) 
+
+\Hypertarget{group__temperature__thresholds_ga176833662fbdd60cdc4b46f967135d96}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}!BASE\_MEDIUM\_BLINK\_COUNTER@{BASE\_MEDIUM\_BLINK\_COUNTER}}
+\index{BASE\_MEDIUM\_BLINK\_COUNTER@{BASE\_MEDIUM\_BLINK\_COUNTER}!Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+\doxysubsubsection{\texorpdfstring{BASE\_MEDIUM\_BLINK\_COUNTER}{BASE\_MEDIUM\_BLINK\_COUNTER}}
+{\footnotesize\ttfamily \label{group__temperature__thresholds_ga176833662fbdd60cdc4b46f967135d96} 
+const uint8\+\_\+t BASE\+\_\+\+MEDIUM\+\_\+\+BLINK\+\_\+\+COUNTER = 8}
+
+
+
+Base threshold for medium blink alert (at 22°C) 
+
+\Hypertarget{group__temperature__thresholds_gaa1c1e9bf55225d129a6c6732dfb92037}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}!BASE\_SLOW\_BLINK\_COUNTER@{BASE\_SLOW\_BLINK\_COUNTER}}
+\index{BASE\_SLOW\_BLINK\_COUNTER@{BASE\_SLOW\_BLINK\_COUNTER}!Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+\doxysubsubsection{\texorpdfstring{BASE\_SLOW\_BLINK\_COUNTER}{BASE\_SLOW\_BLINK\_COUNTER}}
+{\footnotesize\ttfamily \label{group__temperature__thresholds_gaa1c1e9bf55225d129a6c6732dfb92037} 
+const uint8\+\_\+t BASE\+\_\+\+SLOW\+\_\+\+BLINK\+\_\+\+COUNTER = 5}
+
+
+
+Base threshold for slow blink alert (at 22°C) 
+
+\Hypertarget{group__temperature__thresholds_gab2f7eea740e0d2b9c5aef7d5e34a192f}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}!COMFORTABLE\_TEMP@{COMFORTABLE\_TEMP}}
+\index{COMFORTABLE\_TEMP@{COMFORTABLE\_TEMP}!Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+\doxysubsubsection{\texorpdfstring{COMFORTABLE\_TEMP}{COMFORTABLE\_TEMP}}
+{\footnotesize\ttfamily \label{group__temperature__thresholds_gab2f7eea740e0d2b9c5aef7d5e34a192f} 
+const float COMFORTABLE\+\_\+\+TEMP = 22.\+0}
+
+
+
+Baseline comfortable temperature in Celsius. 
+
+\Hypertarget{group__temperature__thresholds_gace09a09447510eb5ce1df883585c509e}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}!CRITICAL\_TEMP\_THRESHOLD@{CRITICAL\_TEMP\_THRESHOLD}}
+\index{CRITICAL\_TEMP\_THRESHOLD@{CRITICAL\_TEMP\_THRESHOLD}!Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+\doxysubsubsection{\texorpdfstring{CRITICAL\_TEMP\_THRESHOLD}{CRITICAL\_TEMP\_THRESHOLD}}
+{\footnotesize\ttfamily \label{group__temperature__thresholds_gace09a09447510eb5ce1df883585c509e} 
+const float CRITICAL\+\_\+\+TEMP\+\_\+\+THRESHOLD = 35.\+0}
+
+
+
+Temperature above which maximum sensitivity is applied. 
+
+\Hypertarget{group__temperature__thresholds_gacfd0ab8870613c86729068fd67005cbe}\index{Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}!HOT\_TEMP\_THRESHOLD@{HOT\_TEMP\_THRESHOLD}}
+\index{HOT\_TEMP\_THRESHOLD@{HOT\_TEMP\_THRESHOLD}!Temperature-\/Based Threshold Configuration@{Temperature-\/Based Threshold Configuration}}
+\doxysubsubsection{\texorpdfstring{HOT\_TEMP\_THRESHOLD}{HOT\_TEMP\_THRESHOLD}}
+{\footnotesize\ttfamily \label{group__temperature__thresholds_gacfd0ab8870613c86729068fd67005cbe} 
+const float HOT\+\_\+\+TEMP\+\_\+\+THRESHOLD = 30.\+0}
+
+
+
+Temperature above which thresholds decrease significantly. 
+

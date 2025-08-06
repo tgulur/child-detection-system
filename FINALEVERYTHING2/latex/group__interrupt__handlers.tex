@@ -1,0 +1,56 @@
+\doxysection{Interrupt Service Routines}
+\hypertarget{group__interrupt__handlers}{}\label{group__interrupt__handlers}\index{Interrupt Service Routines@{Interrupt Service Routines}}
+
+
+Hardware interrupt handlers for sensors and user input.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void ARDUINO\+\_\+\+ISR\+\_\+\+ATTR \mbox{\hyperlink{group__interrupt__handlers_gaeca6547ded353afe67810703b8cb3f51}{motion\+ISR}} ()
+\begin{DoxyCompactList}\small\item\em PIR motion sensor interrupt service routine. \end{DoxyCompactList}\item 
+void ARDUINO\+\_\+\+ISR\+\_\+\+ATTR \mbox{\hyperlink{group__interrupt__handlers_ga242dc3597af10e794b48b96ee3d2d41c}{stop\+Button\+ISR}} ()
+\begin{DoxyCompactList}\small\item\em Emergency stop button interrupt service routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Hardware interrupt handlers for sensors and user input. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__interrupt__handlers_gaeca6547ded353afe67810703b8cb3f51}\index{Interrupt Service Routines@{Interrupt Service Routines}!motionISR@{motionISR}}
+\index{motionISR@{motionISR}!Interrupt Service Routines@{Interrupt Service Routines}}
+\doxysubsubsection{\texorpdfstring{motionISR()}{motionISR()}}
+{\footnotesize\ttfamily \label{group__interrupt__handlers_gaeca6547ded353afe67810703b8cb3f51} 
+void ARDUINO\+\_\+\+ISR\+\_\+\+ATTR motion\+ISR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+PIR motion sensor interrupt service routine. 
+
+This ISR is triggered on the rising edge of the PIR sensor output. It sets flags and timestamps for processing by the motion detection task.
+
+\begin{DoxyNote}{Note}
+This function runs in interrupt context -\/ keep it minimal and fast 
+
+Uses ARDUINO\+\_\+\+ISR\+\_\+\+ATTR for proper interrupt handling on ESP32 
+\end{DoxyNote}
+\Hypertarget{group__interrupt__handlers_ga242dc3597af10e794b48b96ee3d2d41c}\index{Interrupt Service Routines@{Interrupt Service Routines}!stopButtonISR@{stopButtonISR}}
+\index{stopButtonISR@{stopButtonISR}!Interrupt Service Routines@{Interrupt Service Routines}}
+\doxysubsubsection{\texorpdfstring{stopButtonISR()}{stopButtonISR()}}
+{\footnotesize\ttfamily \label{group__interrupt__handlers_ga242dc3597af10e794b48b96ee3d2d41c} 
+void ARDUINO\+\_\+\+ISR\+\_\+\+ATTR stop\+Button\+ISR (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Emergency stop button interrupt service routine. 
+
+This ISR is triggered when the user presses the emergency stop button. The button is only active when the motion persistence counter exceeds the ALERT\+\_\+\+STOP\+\_\+\+THRESHOLD to prevent accidental activation.
+
+\begin{DoxyNote}{Note}
+This function runs in interrupt context -\/ keep it minimal and fast 
+
+Button is only functional when motion counter \texorpdfstring{$>$}{>} ALERT\+\_\+\+STOP\+\_\+\+THRESHOLD 
+\end{DoxyNote}

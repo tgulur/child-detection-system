@@ -1,0 +1,71 @@
+\doxysection{Temperature\+Data Struct Reference}
+\hypertarget{struct_temperature_data}{}\label{struct_temperature_data}\index{TemperatureData@{TemperatureData}}
+
+
+Temperature and humidity sensor data structure.  
+
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{struct_temperature_data_a1fde0ad41c64b063f6dc28f0d75bd25e}{temperature}}
+\begin{DoxyCompactList}\small\item\em Temperature reading in Celsius. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{struct_temperature_data_a805803319e7255e14fa319cc4dffd30a}{humidity}}
+\begin{DoxyCompactList}\small\item\em Humidity reading in percentage. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{struct_temperature_data_a92904d3e93024a518ba758a7318553d8}{valid\+Reading}}
+\begin{DoxyCompactList}\small\item\em True if sensor reading was successful. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_temperature_data_a0f420ea3a8d576f3902c21990864c420}{timestamp}}
+\begin{DoxyCompactList}\small\item\em Timestamp of sensor reading (millis()) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Temperature and humidity sensor data structure. 
+
+Contains environmental data from the AM2302 sensor along with validity flags and timing information. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_temperature_data_a805803319e7255e14fa319cc4dffd30a}\index{TemperatureData@{TemperatureData}!humidity@{humidity}}
+\index{humidity@{humidity}!TemperatureData@{TemperatureData}}
+\doxysubsubsection{\texorpdfstring{humidity}{humidity}}
+{\footnotesize\ttfamily \label{struct_temperature_data_a805803319e7255e14fa319cc4dffd30a} 
+float Temperature\+Data\+::humidity}
+
+
+
+Humidity reading in percentage. 
+
+\Hypertarget{struct_temperature_data_a1fde0ad41c64b063f6dc28f0d75bd25e}\index{TemperatureData@{TemperatureData}!temperature@{temperature}}
+\index{temperature@{temperature}!TemperatureData@{TemperatureData}}
+\doxysubsubsection{\texorpdfstring{temperature}{temperature}}
+{\footnotesize\ttfamily \label{struct_temperature_data_a1fde0ad41c64b063f6dc28f0d75bd25e} 
+float Temperature\+Data\+::temperature}
+
+
+
+Temperature reading in Celsius. 
+
+\Hypertarget{struct_temperature_data_a0f420ea3a8d576f3902c21990864c420}\index{TemperatureData@{TemperatureData}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!TemperatureData@{TemperatureData}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily \label{struct_temperature_data_a0f420ea3a8d576f3902c21990864c420} 
+uint32\+\_\+t Temperature\+Data\+::timestamp}
+
+
+
+Timestamp of sensor reading (millis()) 
+
+\Hypertarget{struct_temperature_data_a92904d3e93024a518ba758a7318553d8}\index{TemperatureData@{TemperatureData}!validReading@{validReading}}
+\index{validReading@{validReading}!TemperatureData@{TemperatureData}}
+\doxysubsubsection{\texorpdfstring{validReading}{validReading}}
+{\footnotesize\ttfamily \label{struct_temperature_data_a92904d3e93024a518ba758a7318553d8} 
+bool Temperature\+Data\+::valid\+Reading}
+
+
+
+True if sensor reading was successful. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino}{FINALEVERYTHING2.\+ino}}\end{DoxyCompactItemize}

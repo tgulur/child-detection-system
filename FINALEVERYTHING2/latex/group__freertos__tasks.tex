@@ -1,0 +1,172 @@
+\doxysection{Free\+RTOS Task Functions}
+\hypertarget{group__freertos__tasks}{}\label{group__freertos__tasks}\index{FreeRTOS Task Functions@{FreeRTOS Task Functions}}
+
+
+Main task functions for the Free\+RTOS system.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__freertos__tasks_ga96c361e8ae7194173d6843a3b9a2fb73}{temperature\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em AM2302 temperature and humidity monitoring task (64Hz, Core 0) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__freertos__tasks_ga831f98f925aec6e63bab0a9258eb3acd}{motion\+Detection\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Enhanced motion detection and processing task (50Hz, Core 0) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__freertos__tasks_ga1ac58d3a2c462ad5f683ea0f9427e9a9}{alert\+Led\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Alert LED control task (200Hz, Core 1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__freertos__tasks_gac55d0909bfe96e544bb1324d9e0be983}{display\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em LCD display management task (32Hz, Core 1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Main task functions for the Free\+RTOS system. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__freertos__tasks_ga1ac58d3a2c462ad5f683ea0f9427e9a9}\index{FreeRTOS Task Functions@{FreeRTOS Task Functions}!alertLedTask@{alertLedTask}}
+\index{alertLedTask@{alertLedTask}!FreeRTOS Task Functions@{FreeRTOS Task Functions}}
+\doxysubsubsection{\texorpdfstring{alertLedTask()}{alertLedTask()}}
+{\footnotesize\ttfamily \label{group__freertos__tasks_ga1ac58d3a2c462ad5f683ea0f9427e9a9} 
+void alert\+Led\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Alert LED control task (200Hz, Core 1) 
+
+This high-\/frequency task manages the progressive alert LED on pin 42, providing smooth blinking patterns that correspond to different alert levels. The high frequency ensures responsive LED control and smooth visual feedback.
+
+LED Blink Patterns\+:
+\begin{DoxyItemize}
+\item Rate 0\+: LED off (no alert)
+\item Rate 1\+: Slow blink (1000ms interval)
+\item Rate 2\+: Medium blink (500ms interval)
+\item Rate 3\+: Fast blink (200ms interval)
+\item Rate 4\+: Critical blink (100ms interval)
+\end{DoxyItemize}
+
+Task Specifications\+:
+\begin{DoxyItemize}
+\item Frequency\+: 200Hz (5ms period)
+\item Core\+: 1 (user interface core)
+\item Priority\+: 3 (high priority for responsive UI)
+\item Stack\+: 2048 bytes
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pv\+Parameters} & Unused Free\+RTOS parameter (NULL)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+High frequency ensures smooth LED transitions and responsive control 
+
+Receives commands from motion detection task via alert\+Queue 
+\end{DoxyNote}
+\Hypertarget{group__freertos__tasks_gac55d0909bfe96e544bb1324d9e0be983}\index{FreeRTOS Task Functions@{FreeRTOS Task Functions}!displayTask@{displayTask}}
+\index{displayTask@{displayTask}!FreeRTOS Task Functions@{FreeRTOS Task Functions}}
+\doxysubsubsection{\texorpdfstring{displayTask()}{displayTask()}}
+{\footnotesize\ttfamily \label{group__freertos__tasks_gac55d0909bfe96e544bb1324d9e0be983} 
+void display\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+LCD display management task (32Hz, Core 1) 
+
+This task manages the LCD display, showing current system status, motion information, environmental data, and user interface elements. It receives data from both motion detection and temperature monitoring tasks.
+
+Display Information\+:
+\begin{DoxyItemize}
+\item Line 1\+: Motion status message and current temperature
+\item Line 2\+: Motion counter, alert level, and button status
+\item Special displays for system stopped state
+\end{DoxyItemize}
+
+Task Specifications\+:
+\begin{DoxyItemize}
+\item Frequency\+: 32Hz (31ms period)
+\item Core\+: 1 (user interface core)
+\item Priority\+: 1
+\item Stack\+: 2048 bytes
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pv\+Parameters} & Unused Free\+RTOS parameter (NULL)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Receives data from multiple tasks via motion\+Queue and temperature\+Queue 
+
+Provides comprehensive system status information to user 
+\end{DoxyNote}
+\Hypertarget{group__freertos__tasks_ga831f98f925aec6e63bab0a9258eb3acd}\index{FreeRTOS Task Functions@{FreeRTOS Task Functions}!motionDetectionTask@{motionDetectionTask}}
+\index{motionDetectionTask@{motionDetectionTask}!FreeRTOS Task Functions@{FreeRTOS Task Functions}}
+\doxysubsubsection{\texorpdfstring{motionDetectionTask()}{motionDetectionTask()}}
+{\footnotesize\ttfamily \label{group__freertos__tasks_ga831f98f925aec6e63bab0a9258eb3acd} 
+void motion\+Detection\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+Enhanced motion detection and processing task (50Hz, Core 0) 
+
+This is the core task that handles PIR motion detection, maintains the motion persistence counter, processes emergency stop button input, and coordinates the overall system response. It implements a sophisticated counter-\/based approach to handle PIR sensor timeout limitations.
+
+Key Responsibilities\+:
+\begin{DoxyItemize}
+\item Process PIR sensor interrupts and maintain motion persistence counter
+\item Handle emergency stop button functionality
+\item Implement 6-\/second polling cycle for counter decrement
+\item Calculate temperature-\/adjusted alert levels
+\item Control status LED based on motion state
+\item Send motion data to display and alert tasks
+\end{DoxyItemize}
+
+Task Specifications\+:
+\begin{DoxyItemize}
+\item Frequency\+: 50Hz (20ms period)
+\item Core\+: 0 (sensor processing core)
+\item Priority\+: 2
+\item Stack\+: 4096 bytes
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pv\+Parameters} & Unused Free\+RTOS parameter (NULL)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Implements counter-\/based persistence to handle PIR sensor timeouts 
+
+Emergency stop only functional when counter \texorpdfstring{$>$}{>} ALERT\+\_\+\+STOP\+\_\+\+THRESHOLD 
+\end{DoxyNote}
+\Hypertarget{group__freertos__tasks_ga96c361e8ae7194173d6843a3b9a2fb73}\index{FreeRTOS Task Functions@{FreeRTOS Task Functions}!temperatureTask@{temperatureTask}}
+\index{temperatureTask@{temperatureTask}!FreeRTOS Task Functions@{FreeRTOS Task Functions}}
+\doxysubsubsection{\texorpdfstring{temperatureTask()}{temperatureTask()}}
+{\footnotesize\ttfamily \label{group__freertos__tasks_ga96c361e8ae7194173d6843a3b9a2fb73} 
+void temperature\+Task (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{pv\+Parameters}{}\end{DoxyParamCaption})}
+
+
+
+AM2302 temperature and humidity monitoring task (64Hz, Core 0) 
+
+This task reads the AM2302 sensor every 3 seconds (sensor limitation) but processes temperature-\/based threshold calculations at 64Hz to maintain high-\/frequency system responsiveness. The task updates global temperature and humidity variables and sends data to other tasks via queues.
+
+Task Specifications\+:
+\begin{DoxyItemize}
+\item Frequency\+: 64Hz (15.\+6ms period)
+\item Core\+: 0 (sensor processing core)
+\item Priority\+: 2
+\item Stack\+: 4096 bytes
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em pv\+Parameters} & Unused Free\+RTOS parameter (NULL)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Sensor reading limited to every 3 seconds due to AM2302 hardware constraints 
+
+Threshold calculations performed at full 64Hz for system responsiveness 
+\end{DoxyNote}

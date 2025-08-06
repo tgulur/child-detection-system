@@ -1,0 +1,107 @@
+\doxysection{Global System State Variables}
+\hypertarget{group__global__state}{}\label{group__global__state}\index{Global System State Variables@{Global System State Variables}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile bool \mbox{\hyperlink{group__global__state_ga08f21ab73f5c35d00fe7798013d79f43}{pir\+Triggered}} = false
+\begin{DoxyCompactList}\small\item\em PIR sensor interrupt flag. \end{DoxyCompactList}\item 
+volatile bool \mbox{\hyperlink{group__global__state_ga7e778ae3df12a943f80592d917cd4f93}{stop\+Button\+Pressed}} = false
+\begin{DoxyCompactList}\small\item\em Stop button interrupt flag. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group__global__state_gaeaf4c8ed3c35b3d58cf8b84354f03699}{last\+Pir\+Trigger}} = 0
+\begin{DoxyCompactList}\small\item\em Last PIR trigger timestamp. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__global__state_gacfea30a9758440ba970eb57576fc2d56}{motion\+Persistence\+Counter}} = 0
+\begin{DoxyCompactList}\small\item\em Motion persistence counter. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__global__state_gaf423f28d52cc69dfecab220b038b5a03}{alert\+System\+Stopped}} = false
+\begin{DoxyCompactList}\small\item\em System stop state. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__global__state_ga29ec8c270db62d59abe6ed3288b3809b}{current\+Temperature}} = 25.\+0
+\begin{DoxyCompactList}\small\item\em Current temperature reading. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__global__state_gae38ebdca688c226cb3e0ea11e7050b57}{current\+Humidity}} = 50.\+0
+\begin{DoxyCompactList}\small\item\em Current humidity reading. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__global__state_gad33d98fbd669c099421558760fd79a80}{temperature\+Data\+Valid}} = false
+\begin{DoxyCompactList}\small\item\em Temperature data validity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{group__global__state_gaf423f28d52cc69dfecab220b038b5a03}\index{Global System State Variables@{Global System State Variables}!alertSystemStopped@{alertSystemStopped}}
+\index{alertSystemStopped@{alertSystemStopped}!Global System State Variables@{Global System State Variables}}
+\doxysubsubsection{\texorpdfstring{alertSystemStopped}{alertSystemStopped}}
+{\footnotesize\ttfamily \label{group__global__state_gaf423f28d52cc69dfecab220b038b5a03} 
+bool alert\+System\+Stopped = false}
+
+
+
+System stop state. 
+
+\Hypertarget{group__global__state_gae38ebdca688c226cb3e0ea11e7050b57}\index{Global System State Variables@{Global System State Variables}!currentHumidity@{currentHumidity}}
+\index{currentHumidity@{currentHumidity}!Global System State Variables@{Global System State Variables}}
+\doxysubsubsection{\texorpdfstring{currentHumidity}{currentHumidity}}
+{\footnotesize\ttfamily \label{group__global__state_gae38ebdca688c226cb3e0ea11e7050b57} 
+float current\+Humidity = 50.\+0}
+
+
+
+Current humidity reading. 
+
+\Hypertarget{group__global__state_ga29ec8c270db62d59abe6ed3288b3809b}\index{Global System State Variables@{Global System State Variables}!currentTemperature@{currentTemperature}}
+\index{currentTemperature@{currentTemperature}!Global System State Variables@{Global System State Variables}}
+\doxysubsubsection{\texorpdfstring{currentTemperature}{currentTemperature}}
+{\footnotesize\ttfamily \label{group__global__state_ga29ec8c270db62d59abe6ed3288b3809b} 
+float current\+Temperature = 25.\+0}
+
+
+
+Current temperature reading. 
+
+\Hypertarget{group__global__state_gaeaf4c8ed3c35b3d58cf8b84354f03699}\index{Global System State Variables@{Global System State Variables}!lastPirTrigger@{lastPirTrigger}}
+\index{lastPirTrigger@{lastPirTrigger}!Global System State Variables@{Global System State Variables}}
+\doxysubsubsection{\texorpdfstring{lastPirTrigger}{lastPirTrigger}}
+{\footnotesize\ttfamily \label{group__global__state_gaeaf4c8ed3c35b3d58cf8b84354f03699} 
+uint32\+\_\+t last\+Pir\+Trigger = 0}
+
+
+
+Last PIR trigger timestamp. 
+
+\Hypertarget{group__global__state_gacfea30a9758440ba970eb57576fc2d56}\index{Global System State Variables@{Global System State Variables}!motionPersistenceCounter@{motionPersistenceCounter}}
+\index{motionPersistenceCounter@{motionPersistenceCounter}!Global System State Variables@{Global System State Variables}}
+\doxysubsubsection{\texorpdfstring{motionPersistenceCounter}{motionPersistenceCounter}}
+{\footnotesize\ttfamily \label{group__global__state_gacfea30a9758440ba970eb57576fc2d56} 
+uint8\+\_\+t motion\+Persistence\+Counter = 0}
+
+
+
+Motion persistence counter. 
+
+\Hypertarget{group__global__state_ga08f21ab73f5c35d00fe7798013d79f43}\index{Global System State Variables@{Global System State Variables}!pirTriggered@{pirTriggered}}
+\index{pirTriggered@{pirTriggered}!Global System State Variables@{Global System State Variables}}
+\doxysubsubsection{\texorpdfstring{pirTriggered}{pirTriggered}}
+{\footnotesize\ttfamily \label{group__global__state_ga08f21ab73f5c35d00fe7798013d79f43} 
+volatile bool pir\+Triggered = false}
+
+
+
+PIR sensor interrupt flag. 
+
+\Hypertarget{group__global__state_ga7e778ae3df12a943f80592d917cd4f93}\index{Global System State Variables@{Global System State Variables}!stopButtonPressed@{stopButtonPressed}}
+\index{stopButtonPressed@{stopButtonPressed}!Global System State Variables@{Global System State Variables}}
+\doxysubsubsection{\texorpdfstring{stopButtonPressed}{stopButtonPressed}}
+{\footnotesize\ttfamily \label{group__global__state_ga7e778ae3df12a943f80592d917cd4f93} 
+volatile bool stop\+Button\+Pressed = false}
+
+
+
+Stop button interrupt flag. 
+
+\Hypertarget{group__global__state_gad33d98fbd669c099421558760fd79a80}\index{Global System State Variables@{Global System State Variables}!temperatureDataValid@{temperatureDataValid}}
+\index{temperatureDataValid@{temperatureDataValid}!Global System State Variables@{Global System State Variables}}
+\doxysubsubsection{\texorpdfstring{temperatureDataValid}{temperatureDataValid}}
+{\footnotesize\ttfamily \label{group__global__state_gad33d98fbd669c099421558760fd79a80} 
+bool temperature\+Data\+Valid = false}
+
+
+
+Temperature data validity. 
+

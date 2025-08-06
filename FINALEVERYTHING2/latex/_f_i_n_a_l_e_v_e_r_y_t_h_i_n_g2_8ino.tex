@@ -1,0 +1,262 @@
+\doxysection{FINALEVERYTHING2.\+ino File Reference}
+\hypertarget{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino}{}\label{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino}\index{FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}}
+{\ttfamily \#include $<$Liquid\+Crystal\+\_\+\+I2\+C.\+h$>$}\newline
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include $<$AM2302-\/\+Sensor.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_motion_data}{Motion\+Data}}
+\begin{DoxyCompactList}\small\item\em Comprehensive motion detection and system status data structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_alert_led_data}{Alert\+Led\+Data}}
+\begin{DoxyCompactList}\small\item\em Alert LED control data structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_temperature_data}{Temperature\+Data}}
+\begin{DoxyCompactList}\small\item\em Temperature and humidity sensor data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__pin__definitions_ga386bd5a6168d14ed64af7d5a53d4ce47}{PIR\+\_\+\+PIN}}~12
+\begin{DoxyCompactList}\small\item\em GPIO pin for PIR motion sensor input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__pin__definitions_ga089a71f836911c71b3f73fdd3b4b890b}{STATUS\+\_\+\+LED\+\_\+\+PIN}}~21
+\begin{DoxyCompactList}\small\item\em GPIO pin for status LED (on when motion detected) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__pin__definitions_gac58b6a94aa0ccae5475f28e851202fdc}{ALERT\+\_\+\+LED\+\_\+\+PIN}}~42
+\begin{DoxyCompactList}\small\item\em GPIO pin for progressive alert LED (variable blink rate) \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__pin__definitions_ga9da436c5bf6a3ce86e3c4a178ca6a862}{STOP\+\_\+\+BUTTON\+\_\+\+PIN}}~20
+\begin{DoxyCompactList}\small\item\em GPIO pin for emergency stop button input. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__pin__definitions_gad459e41c84e38de975aff099c80c29ef}{AM2302\+\_\+\+PIN}}~15
+\begin{DoxyCompactList}\small\item\em GPIO pin for AM2302 temperature/humidity sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Liquid\+Crystal\+\_\+\+I2C \mbox{\hyperlink{group__hardware__objects_gae084e1bc8ccb35ea289ba0ca4972ea6d}{lcd}} (0x27, 16, 2)
+\begin{DoxyCompactList}\small\item\em LCD display object (I2C address 0x27, 16x2 characters) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a77842e16e28d671d1c1b77223c756cee}{calculate\+Temperature\+Adjusted\+Thresholds}} (float temperature, uint8\+\_\+t \&slow\+Threshold, uint8\+\_\+t \&medium\+Threshold, uint8\+\_\+t \&fast\+Threshold, uint8\+\_\+t \&critical\+Threshold)
+\begin{DoxyCompactList}\small\item\em Calculate temperature-\/adjusted alert thresholds. \end{DoxyCompactList}\item 
+void ARDUINO\+\_\+\+ISR\+\_\+\+ATTR \mbox{\hyperlink{group__interrupt__handlers_gaeca6547ded353afe67810703b8cb3f51}{motion\+ISR}} ()
+\begin{DoxyCompactList}\small\item\em PIR motion sensor interrupt service routine. \end{DoxyCompactList}\item 
+void ARDUINO\+\_\+\+ISR\+\_\+\+ATTR \mbox{\hyperlink{group__interrupt__handlers_ga242dc3597af10e794b48b96ee3d2d41c}{stop\+Button\+ISR}} ()
+\begin{DoxyCompactList}\small\item\em Emergency stop button interrupt service routine. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_adfacf54e12018b63bb775a9c265e7560}{calculate\+Blink\+Rate}} (uint8\+\_\+t counter, float temperature)
+\begin{DoxyCompactList}\small\item\em Calculate LED blink rate based on motion counter and temperature. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a87e6d5d36f9d273f4474577e4acabeef}{get\+Blink\+Interval}} (uint8\+\_\+t rate)
+\begin{DoxyCompactList}\small\item\em Get LED blink interval for specified blink rate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__freertos__tasks_ga96c361e8ae7194173d6843a3b9a2fb73}{temperature\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em AM2302 temperature and humidity monitoring task (64Hz, Core 0) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__freertos__tasks_ga831f98f925aec6e63bab0a9258eb3acd}{motion\+Detection\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Enhanced motion detection and processing task (50Hz, Core 0) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__freertos__tasks_ga1ac58d3a2c462ad5f683ea0f9427e9a9}{alert\+Led\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em Alert LED control task (200Hz, Core 1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__freertos__tasks_gac55d0909bfe96e544bb1324d9e0be983}{display\+Task}} (void \texorpdfstring{$\ast$}{*}pv\+Parameters)
+\begin{DoxyCompactList}\small\item\em LCD display management task (32Hz, Core 1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em System initialization and setup function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Main loop function (runs on Core 1) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+AM2302\+::\+AM2302\+\_\+\+Sensor \mbox{\hyperlink{group__hardware__objects_ga63213cd97e448ae61f92b17b84a4e335}{am2302}} \{\mbox{\hyperlink{group__pin__definitions_gad459e41c84e38de975aff099c80c29ef}{AM2302\+\_\+\+PIN}}\}
+\begin{DoxyCompactList}\small\item\em AM2302 temperature/humidity sensor object. \end{DoxyCompactList}\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{group__task__handles_ga546f4e5598675ac5413f9431e0058f16}{motion\+Task\+Handle}}
+\begin{DoxyCompactList}\small\item\em Handle for motion detection task (50Hz, Core 0) \end{DoxyCompactList}\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{group__task__handles_ga6481473160dbb61b2d1cb7eb2372846b}{display\+Task\+Handle}}
+\begin{DoxyCompactList}\small\item\em Handle for display management task (32Hz, Core 1) \end{DoxyCompactList}\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{group__task__handles_gaed1d569b081c537c085099ddd7e12f99}{alert\+Led\+Task\+Handle}}
+\begin{DoxyCompactList}\small\item\em Handle for alert LED control task (200Hz, Core 1) \end{DoxyCompactList}\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{group__task__handles_ga686eba44f17789a40d2c111fb05e4092}{temperature\+Task\+Handle}}
+\begin{DoxyCompactList}\small\item\em Handle for temperature monitoring task (64Hz, Core 0) \end{DoxyCompactList}\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{group__queue__handles_ga2665eaa81a8a0b679a03a328d53cdbed}{motion\+Queue}}
+\begin{DoxyCompactList}\small\item\em Queue for motion detection data transfer. \end{DoxyCompactList}\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{group__queue__handles_ga2e8229f0feb0ad116803149f4286f2e8}{alert\+Queue}}
+\begin{DoxyCompactList}\small\item\em Queue for alert LED control commands. \end{DoxyCompactList}\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{group__queue__handles_gac52afd52889baae6a2539dc65e664d32}{temperature\+Queue}}
+\begin{DoxyCompactList}\small\item\em Queue for temperature sensor data transfer. \end{DoxyCompactList}\item 
+volatile bool \mbox{\hyperlink{group__global__variables_ga08f21ab73f5c35d00fe7798013d79f43}{pir\+Triggered}} = false
+\begin{DoxyCompactList}\small\item\em ISR flag\+: PIR sensor triggered. \end{DoxyCompactList}\item 
+volatile bool \mbox{\hyperlink{group__global__variables_ga7e778ae3df12a943f80592d917cd4f93}{stop\+Button\+Pressed}} = false
+\begin{DoxyCompactList}\small\item\em ISR flag\+: Emergency stop button pressed. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group__global__variables_gaeaf4c8ed3c35b3d58cf8b84354f03699}{last\+Pir\+Trigger}} = 0
+\begin{DoxyCompactList}\small\item\em Timestamp of last PIR trigger (millis()) \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__global__variables_gacfea30a9758440ba970eb57576fc2d56}{motion\+Persistence\+Counter}} = 0
+\begin{DoxyCompactList}\small\item\em Current motion persistence counter (0-\/20) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group__global__variables_gab4412774b510a0cbc9a8ae8c984b9413}{last\+Counter\+Update}} = 0
+\begin{DoxyCompactList}\small\item\em Timestamp of last counter update (millis()) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__global__variables_gaf423f28d52cc69dfecab220b038b5a03}{alert\+System\+Stopped}} = false
+\begin{DoxyCompactList}\small\item\em True if alert system stopped by user. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__global__variables_ga29ec8c270db62d59abe6ed3288b3809b}{current\+Temperature}} = 25.\+0
+\begin{DoxyCompactList}\small\item\em Current temperature reading (default 25°C) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__global__variables_gae38ebdca688c226cb3e0ea11e7050b57}{current\+Humidity}} = 50.\+0
+\begin{DoxyCompactList}\small\item\em Current humidity reading (default 50\%) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__global__variables_gad33d98fbd669c099421558760fd79a80}{temperature\+Data\+Valid}} = false
+\begin{DoxyCompactList}\small\item\em True if temperature data is valid. \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{group__timing__constants_ga9269f8e41b54fc43b68349bc535b7ea6}{COUNTER\+\_\+\+UPDATE\+\_\+\+INTERVAL}} = 6000
+\begin{DoxyCompactList}\small\item\em Counter update interval in milliseconds (6 seconds) \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{group__timing__constants_gac5ef1b1acf8ae5e402bd27846ba687eb}{PIR\+\_\+\+DETECTION\+\_\+\+WINDOW}} = 5500
+\begin{DoxyCompactList}\small\item\em PIR detection window in milliseconds (5.\+5 seconds) \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__timing__constants_ga63acc3d8075606bc29b3bf1bb0fd9d6d}{MAX\+\_\+\+PERSISTENCE\+\_\+\+COUNTER}} = 20
+\begin{DoxyCompactList}\small\item\em Maximum value for persistence counter. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__timing__constants_gabefa38ddd8fd0ed7948bb065761e8045}{MIN\+\_\+\+COUNTER\+\_\+\+FOR\+\_\+\+ALERT}} = 1
+\begin{DoxyCompactList}\small\item\em Minimum counter value to trigger alerts. \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_gaa1c1e9bf55225d129a6c6732dfb92037}{BASE\+\_\+\+SLOW\+\_\+\+BLINK\+\_\+\+COUNTER}} = 5
+\begin{DoxyCompactList}\small\item\em Base threshold for slow blink alert (at 22°C) \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_ga176833662fbdd60cdc4b46f967135d96}{BASE\+\_\+\+MEDIUM\+\_\+\+BLINK\+\_\+\+COUNTER}} = 8
+\begin{DoxyCompactList}\small\item\em Base threshold for medium blink alert (at 22°C) \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_gacd95e40c02afbdec7bb5b1663b1e2a06}{BASE\+\_\+\+FAST\+\_\+\+BLINK\+\_\+\+COUNTER}} = 12
+\begin{DoxyCompactList}\small\item\em Base threshold for fast blink alert (at 22°C) \end{DoxyCompactList}\item 
+const uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_ga19526fb68b8a93afd00c9e0cfbf90955}{BASE\+\_\+\+CRITICAL\+\_\+\+BLINK\+\_\+\+COUNTER}} = 16
+\begin{DoxyCompactList}\small\item\em Base threshold for critical blink alert (at 22°C) \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{group__temperature__thresholds_gab2f7eea740e0d2b9c5aef7d5e34a192f}{COMFORTABLE\+\_\+\+TEMP}} = 22.\+0
+\begin{DoxyCompactList}\small\item\em Baseline comfortable temperature in Celsius. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{group__temperature__thresholds_gacfd0ab8870613c86729068fd67005cbe}{HOT\+\_\+\+TEMP\+\_\+\+THRESHOLD}} = 30.\+0
+\begin{DoxyCompactList}\small\item\em Temperature above which thresholds decrease significantly. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{group__temperature__thresholds_gace09a09447510eb5ce1df883585c509e}{CRITICAL\+\_\+\+TEMP\+\_\+\+THRESHOLD}} = 35.\+0
+\begin{DoxyCompactList}\small\item\em Temperature above which maximum sensitivity is applied. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__temperature__thresholds_gadf8cb1995af54b6334b287d7daf37032}{ALERT\+\_\+\+STOP\+\_\+\+THRESHOLD}} = 5
+\begin{DoxyCompactList}\small\item\em Counter threshold to enable emergency stop button. \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{group__led__timing_ga1c65f1e9d3d2e9e39680861eb5c6e78c}{SLOW\+\_\+\+BLINK\+\_\+\+INTERVAL}} = 1000
+\begin{DoxyCompactList}\small\item\em Slow blink interval in milliseconds. \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{group__led__timing_ga11a1b2905a38f4f95dd8c7d2b604ffa0}{MEDIUM\+\_\+\+BLINK\+\_\+\+INTERVAL}} = 500
+\begin{DoxyCompactList}\small\item\em Medium blink interval in milliseconds. \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{group__led__timing_ga9309946a66e2ae3c39728484a00cf001}{FAST\+\_\+\+BLINK\+\_\+\+INTERVAL}} = 200
+\begin{DoxyCompactList}\small\item\em Fast blink interval in milliseconds. \end{DoxyCompactList}\item 
+const uint32\+\_\+t \mbox{\hyperlink{group__led__timing_gab0c4ae8be678e90e917f649e5cc3eaea}{CRITICAL\+\_\+\+BLINK\+\_\+\+INTERVAL}} = 100
+\begin{DoxyCompactList}\small\item\em Critical blink interval in milliseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_adfacf54e12018b63bb775a9c265e7560}\index{FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}!calculateBlinkRate@{calculateBlinkRate}}
+\index{calculateBlinkRate@{calculateBlinkRate}!FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}}
+\doxysubsubsection{\texorpdfstring{calculateBlinkRate()}{calculateBlinkRate()}}
+{\footnotesize\ttfamily \label{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_adfacf54e12018b63bb775a9c265e7560} 
+uint8\+\_\+t calculate\+Blink\+Rate (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{counter}{, }\item[{float}]{temperature}{}\end{DoxyParamCaption})}
+
+
+
+Calculate LED blink rate based on motion counter and temperature. 
+
+Determines the appropriate LED blink rate by first calculating temperature-\/adjusted thresholds and then comparing the current motion persistence counter against them.
+
+
+\begin{DoxyParams}{Parameters}
+{\em counter} & Current motion persistence counter value \\
+\hline
+{\em temperature} & Current temperature for threshold adjustment \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t Blink rate (0=off, 1=slow, 2=medium, 3=fast, 4=critical)
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a77842e16e28d671d1c1b77223c756cee}{calculate\+Temperature\+Adjusted\+Thresholds()} 
+\end{DoxySeeAlso}
+\Hypertarget{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a77842e16e28d671d1c1b77223c756cee}\index{FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}!calculateTemperatureAdjustedThresholds@{calculateTemperatureAdjustedThresholds}}
+\index{calculateTemperatureAdjustedThresholds@{calculateTemperatureAdjustedThresholds}!FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}}
+\doxysubsubsection{\texorpdfstring{calculateTemperatureAdjustedThresholds()}{calculateTemperatureAdjustedThresholds()}}
+{\footnotesize\ttfamily \label{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a77842e16e28d671d1c1b77223c756cee} 
+void calculate\+Temperature\+Adjusted\+Thresholds (\begin{DoxyParamCaption}\item[{float}]{temperature}{, }\item[{uint8\+\_\+t \&}]{slow\+Threshold}{, }\item[{uint8\+\_\+t \&}]{medium\+Threshold}{, }\item[{uint8\+\_\+t \&}]{fast\+Threshold}{, }\item[{uint8\+\_\+t \&}]{critical\+Threshold}{}\end{DoxyParamCaption})}
+
+
+
+Calculate temperature-\/adjusted alert thresholds. 
+
+This function dynamically adjusts alert thresholds based on current temperature to make the system more sensitive in hot conditions. Higher temperatures result in lower thresholds, meaning alerts trigger with less sustained motion.
+
+Temperature adjustment factors\+:
+\begin{DoxyItemize}
+\item Below 22°C\+: Use base thresholds (no adjustment)
+\item 22-\/30°C\+: Gradual reduction up to 50\%
+\item 30-\/35°C\+: 50\% reduction in thresholds
+\item Above 35°C\+: 70\% reduction in thresholds (maximum sensitivity)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em temperature} & Current temperature in Celsius \\
+\hline
+\mbox{\texttt{ out}}  & {\em slow\+Threshold} & Calculated threshold for slow blink alert \\
+\hline
+\mbox{\texttt{ out}}  & {\em medium\+Threshold} & Calculated threshold for medium blink alert \\
+\hline
+\mbox{\texttt{ out}}  & {\em fast\+Threshold} & Calculated threshold for fast blink alert \\
+\hline
+\mbox{\texttt{ out}}  & {\em critical\+Threshold} & Calculated threshold for critical blink alert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+All output thresholds are guaranteed to be at least 1, 2, 3, and 4 respectively 
+
+Also updates the global ALERT\+\_\+\+STOP\+\_\+\+THRESHOLD variable 
+\end{DoxyNote}
+\Hypertarget{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a87e6d5d36f9d273f4474577e4acabeef}\index{FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}!getBlinkInterval@{getBlinkInterval}}
+\index{getBlinkInterval@{getBlinkInterval}!FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}}
+\doxysubsubsection{\texorpdfstring{getBlinkInterval()}{getBlinkInterval()}}
+{\footnotesize\ttfamily \label{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a87e6d5d36f9d273f4474577e4acabeef} 
+uint32\+\_\+t get\+Blink\+Interval (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{rate}{}\end{DoxyParamCaption})}
+
+
+
+Get LED blink interval for specified blink rate. 
+
+Converts a blink rate number into the corresponding time interval for LED on/off cycles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rate} & Blink rate (0-\/4) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t Blink interval in milliseconds (0 if rate is 0) 
+\end{DoxyReturn}
+\Hypertarget{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_afe461d27b9c48d5921c00d521181f12f}\index{FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}!loop@{loop}}
+\index{loop@{loop}!FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily \label{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_afe461d27b9c48d5921c00d521181f12f} 
+void loop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Main loop function (runs on Core 1) 
+
+The main loop provides periodic system status reporting and monitoring. Since all main functionality is handled by Free\+RTOS tasks, this loop primarily serves as a system health monitor and debug output generator.
+
+Status Report Contents\+:
+\begin{DoxyItemize}
+\item Current task frequencies
+\item Environmental conditions (temperature, humidity)
+\item Adjusted alert thresholds based on temperature
+\item Motion persistence counter value
+\item System memory usage
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+Reports system status every 10 seconds 
+
+All main functionality handled by Free\+RTOS tasks 
+\end{DoxyNote}
+\Hypertarget{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a4fc01d736fe50cf5b977f755b675f11d}\index{FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}!setup@{setup}}
+\index{setup@{setup}!FINALEVERYTHING2.ino@{FINALEVERYTHING2.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily \label{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+void setup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+System initialization and setup function. 
+
+Initializes all hardware components, creates Free\+RTOS tasks and queues, sets up interrupt handlers, and prepares the system for operation.
+
+Initialization Sequence\+:
+\begin{DoxyEnumerate}
+\item Initialize serial communication and pins
+\item Initialize AM2302 sensor and LCD display
+\item Create Free\+RTOS queues for inter-\/task communication
+\item Create and pin tasks to specific CPU cores
+\item Set up hardware interrupts for PIR and button
+\item Display system ready message
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Note}
+This function runs once at system startup 
+
+Tasks are pinned to specific cores for optimal performance 
+\end{DoxyNote}

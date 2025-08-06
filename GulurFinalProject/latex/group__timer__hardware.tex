@@ -1,0 +1,79 @@
+\doxysection{Hardware Timer Configuration}
+\hypertarget{group__timer__hardware}{}\label{group__timer__hardware}\index{Hardware Timer Configuration@{Hardware Timer Configuration}}
+
+
+ESP32 Timer 0 configuration for 6-\/second counter updates.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void ARDUINO\+\_\+\+ISR\+\_\+\+ATTR \mbox{\hyperlink{group__timer__hardware_gaed5b117bb63c742ef465413ae878bcfd}{on\+Timer0}} ()
+\begin{DoxyCompactList}\small\item\em Hardware Timer 0 interrupt service routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+hw\+\_\+timer\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__timer__hardware_ga25ee574a82660d392759061e40e6afa6}{timer0}} = NULL
+\begin{DoxyCompactList}\small\item\em Hardware timer handle. \end{DoxyCompactList}\item 
+port\+MUX\+\_\+\+TYPE \mbox{\hyperlink{group__timer__hardware_gadedb0f4641b7b425776dbacb23a96576}{timer\+Mux}} = port\+MUX\+\_\+\+INITIALIZER\+\_\+\+UNLOCKED
+\begin{DoxyCompactList}\small\item\em Timer mutex for ISR safety. \end{DoxyCompactList}\item 
+volatile bool \mbox{\hyperlink{group__timer__hardware_ga8b8179545ba8c8e3b7f0a13629cde9c1}{counter\+Update\+Flag}} = false
+\begin{DoxyCompactList}\small\item\em Timer ISR flag for counter updates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+ESP32 Timer 0 configuration for 6-\/second counter updates. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group__timer__hardware_gaed5b117bb63c742ef465413ae878bcfd}\index{Hardware Timer Configuration@{Hardware Timer Configuration}!onTimer0@{onTimer0}}
+\index{onTimer0@{onTimer0}!Hardware Timer Configuration@{Hardware Timer Configuration}}
+\doxysubsubsection{\texorpdfstring{onTimer0()}{onTimer0()}}
+{\footnotesize\ttfamily \label{group__timer__hardware_gaed5b117bb63c742ef465413ae878bcfd} 
+void ARDUINO\+\_\+\+ISR\+\_\+\+ATTR on\+Timer0 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Hardware Timer 0 interrupt service routine. 
+
+Triggers every 6 seconds to signal the motion detection task to update the persistence counter. Replaces software timing with precise hardware timing.
+
+\begin{DoxyNote}{Note}
+Executes in interrupt context -\/ minimal processing only 
+
+Sets counter\+Update\+Flag for main task processing 
+\end{DoxyNote}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{group__timer__hardware_ga8b8179545ba8c8e3b7f0a13629cde9c1}\index{Hardware Timer Configuration@{Hardware Timer Configuration}!counterUpdateFlag@{counterUpdateFlag}}
+\index{counterUpdateFlag@{counterUpdateFlag}!Hardware Timer Configuration@{Hardware Timer Configuration}}
+\doxysubsubsection{\texorpdfstring{counterUpdateFlag}{counterUpdateFlag}}
+{\footnotesize\ttfamily \label{group__timer__hardware_ga8b8179545ba8c8e3b7f0a13629cde9c1} 
+volatile bool counter\+Update\+Flag = false}
+
+
+
+Timer ISR flag for counter updates. 
+
+\Hypertarget{group__timer__hardware_ga25ee574a82660d392759061e40e6afa6}\index{Hardware Timer Configuration@{Hardware Timer Configuration}!timer0@{timer0}}
+\index{timer0@{timer0}!Hardware Timer Configuration@{Hardware Timer Configuration}}
+\doxysubsubsection{\texorpdfstring{timer0}{timer0}}
+{\footnotesize\ttfamily \label{group__timer__hardware_ga25ee574a82660d392759061e40e6afa6} 
+hw\+\_\+timer\+\_\+t\texorpdfstring{$\ast$}{*} timer0 = NULL}
+
+
+
+Hardware timer handle. 
+
+\Hypertarget{group__timer__hardware_gadedb0f4641b7b425776dbacb23a96576}\index{Hardware Timer Configuration@{Hardware Timer Configuration}!timerMux@{timerMux}}
+\index{timerMux@{timerMux}!Hardware Timer Configuration@{Hardware Timer Configuration}}
+\doxysubsubsection{\texorpdfstring{timerMux}{timerMux}}
+{\footnotesize\ttfamily \label{group__timer__hardware_gadedb0f4641b7b425776dbacb23a96576} 
+port\+MUX\+\_\+\+TYPE timer\+Mux = port\+MUX\+\_\+\+INITIALIZER\+\_\+\+UNLOCKED}
+
+
+
+Timer mutex for ISR safety. 
+

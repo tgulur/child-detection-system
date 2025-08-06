@@ -1,0 +1,119 @@
+\doxysection{Motion\+Data Struct Reference}
+\hypertarget{struct_motion_data}{}\label{struct_motion_data}\index{MotionData@{MotionData}}
+
+
+Comprehensive motion detection and system status data structure.  
+
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct_motion_data_a8bff24643bcc021257257265ede204d1}{motion\+Detected}}
+\begin{DoxyCompactList}\small\item\em True if motion is currently active (counter \texorpdfstring{$>$}{>}= MIN\+\_\+\+COUNTER\+\_\+\+FOR\+\_\+\+ALERT) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_motion_data_a82ff30a07be9265f330416eb0d8cc5b8}{timestamp}}
+\begin{DoxyCompactList}\small\item\em Timestamp when this data was created (millis()) \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_motion_data_a197ed3db5b6a31c5acfb3e4060c90826}{persistence\+Counter}}
+\begin{DoxyCompactList}\small\item\em Current motion persistence counter value (0-\/20) \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_motion_data_a99057c9c2c1077b906c163322f613c16}{alert\+Level}}
+\begin{DoxyCompactList}\small\item\em Current alert level (0=none, 1=low, 2=medium, 3=high, 4=critical) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{struct_motion_data_acf8bc0832d4c154126bd4987ea7e154c}{alert\+System\+Stopped}}
+\begin{DoxyCompactList}\small\item\em True if user has stopped the alert system via button. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{struct_motion_data_a4f84a65c7b3c8feefdd6ed77a72000e9}{temperature}}
+\begin{DoxyCompactList}\small\item\em Current temperature reading in Celsius. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{struct_motion_data_afa4ac9eb3e147ec1158ccb9a73985e34}{humidity}}
+\begin{DoxyCompactList}\small\item\em Current humidity reading in percentage. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{struct_motion_data_affd28b25447bdf3428222bf94b5665f0}{message}}
+\begin{DoxyCompactList}\small\item\em Human-\/readable status message for display. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Comprehensive motion detection and system status data structure. 
+
+This structure contains all relevant information about the current motion detection state, environmental conditions, and system status. It is passed between tasks to maintain system-\/wide awareness of current conditions. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{struct_motion_data_a99057c9c2c1077b906c163322f613c16}\index{MotionData@{MotionData}!alertLevel@{alertLevel}}
+\index{alertLevel@{alertLevel}!MotionData@{MotionData}}
+\doxysubsubsection{\texorpdfstring{alertLevel}{alertLevel}}
+{\footnotesize\ttfamily \label{struct_motion_data_a99057c9c2c1077b906c163322f613c16} 
+uint8\+\_\+t Motion\+Data\+::alert\+Level}
+
+
+
+Current alert level (0=none, 1=low, 2=medium, 3=high, 4=critical) 
+
+\Hypertarget{struct_motion_data_acf8bc0832d4c154126bd4987ea7e154c}\index{MotionData@{MotionData}!alertSystemStopped@{alertSystemStopped}}
+\index{alertSystemStopped@{alertSystemStopped}!MotionData@{MotionData}}
+\doxysubsubsection{\texorpdfstring{alertSystemStopped}{alertSystemStopped}}
+{\footnotesize\ttfamily \label{struct_motion_data_acf8bc0832d4c154126bd4987ea7e154c} 
+bool Motion\+Data\+::alert\+System\+Stopped}
+
+
+
+True if user has stopped the alert system via button. 
+
+\Hypertarget{struct_motion_data_afa4ac9eb3e147ec1158ccb9a73985e34}\index{MotionData@{MotionData}!humidity@{humidity}}
+\index{humidity@{humidity}!MotionData@{MotionData}}
+\doxysubsubsection{\texorpdfstring{humidity}{humidity}}
+{\footnotesize\ttfamily \label{struct_motion_data_afa4ac9eb3e147ec1158ccb9a73985e34} 
+float Motion\+Data\+::humidity}
+
+
+
+Current humidity reading in percentage. 
+
+\Hypertarget{struct_motion_data_affd28b25447bdf3428222bf94b5665f0}\index{MotionData@{MotionData}!message@{message}}
+\index{message@{message}!MotionData@{MotionData}}
+\doxysubsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily \label{struct_motion_data_affd28b25447bdf3428222bf94b5665f0} 
+String Motion\+Data\+::message}
+
+
+
+Human-\/readable status message for display. 
+
+\Hypertarget{struct_motion_data_a8bff24643bcc021257257265ede204d1}\index{MotionData@{MotionData}!motionDetected@{motionDetected}}
+\index{motionDetected@{motionDetected}!MotionData@{MotionData}}
+\doxysubsubsection{\texorpdfstring{motionDetected}{motionDetected}}
+{\footnotesize\ttfamily \label{struct_motion_data_a8bff24643bcc021257257265ede204d1} 
+bool Motion\+Data\+::motion\+Detected}
+
+
+
+True if motion is currently active (counter \texorpdfstring{$>$}{>}= MIN\+\_\+\+COUNTER\+\_\+\+FOR\+\_\+\+ALERT) 
+
+\Hypertarget{struct_motion_data_a197ed3db5b6a31c5acfb3e4060c90826}\index{MotionData@{MotionData}!persistenceCounter@{persistenceCounter}}
+\index{persistenceCounter@{persistenceCounter}!MotionData@{MotionData}}
+\doxysubsubsection{\texorpdfstring{persistenceCounter}{persistenceCounter}}
+{\footnotesize\ttfamily \label{struct_motion_data_a197ed3db5b6a31c5acfb3e4060c90826} 
+uint8\+\_\+t Motion\+Data\+::persistence\+Counter}
+
+
+
+Current motion persistence counter value (0-\/20) 
+
+\Hypertarget{struct_motion_data_a4f84a65c7b3c8feefdd6ed77a72000e9}\index{MotionData@{MotionData}!temperature@{temperature}}
+\index{temperature@{temperature}!MotionData@{MotionData}}
+\doxysubsubsection{\texorpdfstring{temperature}{temperature}}
+{\footnotesize\ttfamily \label{struct_motion_data_a4f84a65c7b3c8feefdd6ed77a72000e9} 
+float Motion\+Data\+::temperature}
+
+
+
+Current temperature reading in Celsius. 
+
+\Hypertarget{struct_motion_data_a82ff30a07be9265f330416eb0d8cc5b8}\index{MotionData@{MotionData}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!MotionData@{MotionData}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily \label{struct_motion_data_a82ff30a07be9265f330416eb0d8cc5b8} 
+uint32\+\_\+t Motion\+Data\+::timestamp}
+
+
+
+Timestamp when this data was created (millis()) 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_f_i_n_a_l_e_v_e_r_y_t_h_i_n_g2_8ino}{FINALEVERYTHING2.\+ino}}\end{DoxyCompactItemize}

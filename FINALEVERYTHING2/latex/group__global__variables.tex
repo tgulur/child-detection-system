@@ -1,0 +1,126 @@
+\doxysection{Global Variables}
+\hypertarget{group__global__variables}{}\label{group__global__variables}\index{Global Variables@{Global Variables}}
+
+
+Global system state variables.  
+
+
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile bool \mbox{\hyperlink{group__global__variables_ga08f21ab73f5c35d00fe7798013d79f43}{pir\+Triggered}} = false
+\begin{DoxyCompactList}\small\item\em ISR flag\+: PIR sensor triggered. \end{DoxyCompactList}\item 
+volatile bool \mbox{\hyperlink{group__global__variables_ga7e778ae3df12a943f80592d917cd4f93}{stop\+Button\+Pressed}} = false
+\begin{DoxyCompactList}\small\item\em ISR flag\+: Emergency stop button pressed. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group__global__variables_gaeaf4c8ed3c35b3d58cf8b84354f03699}{last\+Pir\+Trigger}} = 0
+\begin{DoxyCompactList}\small\item\em Timestamp of last PIR trigger (millis()) \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{group__global__variables_gacfea30a9758440ba970eb57576fc2d56}{motion\+Persistence\+Counter}} = 0
+\begin{DoxyCompactList}\small\item\em Current motion persistence counter (0-\/20) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{group__global__variables_gab4412774b510a0cbc9a8ae8c984b9413}{last\+Counter\+Update}} = 0
+\begin{DoxyCompactList}\small\item\em Timestamp of last counter update (millis()) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__global__variables_gaf423f28d52cc69dfecab220b038b5a03}{alert\+System\+Stopped}} = false
+\begin{DoxyCompactList}\small\item\em True if alert system stopped by user. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__global__variables_ga29ec8c270db62d59abe6ed3288b3809b}{current\+Temperature}} = 25.\+0
+\begin{DoxyCompactList}\small\item\em Current temperature reading (default 25°C) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{group__global__variables_gae38ebdca688c226cb3e0ea11e7050b57}{current\+Humidity}} = 50.\+0
+\begin{DoxyCompactList}\small\item\em Current humidity reading (default 50\%) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{group__global__variables_gad33d98fbd669c099421558760fd79a80}{temperature\+Data\+Valid}} = false
+\begin{DoxyCompactList}\small\item\em True if temperature data is valid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Global system state variables. 
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{group__global__variables_gaf423f28d52cc69dfecab220b038b5a03}\index{Global Variables@{Global Variables}!alertSystemStopped@{alertSystemStopped}}
+\index{alertSystemStopped@{alertSystemStopped}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{alertSystemStopped}{alertSystemStopped}}
+{\footnotesize\ttfamily \label{group__global__variables_gaf423f28d52cc69dfecab220b038b5a03} 
+bool alert\+System\+Stopped = false}
+
+
+
+True if alert system stopped by user. 
+
+\Hypertarget{group__global__variables_gae38ebdca688c226cb3e0ea11e7050b57}\index{Global Variables@{Global Variables}!currentHumidity@{currentHumidity}}
+\index{currentHumidity@{currentHumidity}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{currentHumidity}{currentHumidity}}
+{\footnotesize\ttfamily \label{group__global__variables_gae38ebdca688c226cb3e0ea11e7050b57} 
+float current\+Humidity = 50.\+0}
+
+
+
+Current humidity reading (default 50\%) 
+
+\Hypertarget{group__global__variables_ga29ec8c270db62d59abe6ed3288b3809b}\index{Global Variables@{Global Variables}!currentTemperature@{currentTemperature}}
+\index{currentTemperature@{currentTemperature}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{currentTemperature}{currentTemperature}}
+{\footnotesize\ttfamily \label{group__global__variables_ga29ec8c270db62d59abe6ed3288b3809b} 
+float current\+Temperature = 25.\+0}
+
+
+
+Current temperature reading (default 25°C) 
+
+\Hypertarget{group__global__variables_gab4412774b510a0cbc9a8ae8c984b9413}\index{Global Variables@{Global Variables}!lastCounterUpdate@{lastCounterUpdate}}
+\index{lastCounterUpdate@{lastCounterUpdate}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{lastCounterUpdate}{lastCounterUpdate}}
+{\footnotesize\ttfamily \label{group__global__variables_gab4412774b510a0cbc9a8ae8c984b9413} 
+uint32\+\_\+t last\+Counter\+Update = 0}
+
+
+
+Timestamp of last counter update (millis()) 
+
+\Hypertarget{group__global__variables_gaeaf4c8ed3c35b3d58cf8b84354f03699}\index{Global Variables@{Global Variables}!lastPirTrigger@{lastPirTrigger}}
+\index{lastPirTrigger@{lastPirTrigger}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{lastPirTrigger}{lastPirTrigger}}
+{\footnotesize\ttfamily \label{group__global__variables_gaeaf4c8ed3c35b3d58cf8b84354f03699} 
+uint32\+\_\+t last\+Pir\+Trigger = 0}
+
+
+
+Timestamp of last PIR trigger (millis()) 
+
+\Hypertarget{group__global__variables_gacfea30a9758440ba970eb57576fc2d56}\index{Global Variables@{Global Variables}!motionPersistenceCounter@{motionPersistenceCounter}}
+\index{motionPersistenceCounter@{motionPersistenceCounter}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{motionPersistenceCounter}{motionPersistenceCounter}}
+{\footnotesize\ttfamily \label{group__global__variables_gacfea30a9758440ba970eb57576fc2d56} 
+uint8\+\_\+t motion\+Persistence\+Counter = 0}
+
+
+
+Current motion persistence counter (0-\/20) 
+
+\Hypertarget{group__global__variables_ga08f21ab73f5c35d00fe7798013d79f43}\index{Global Variables@{Global Variables}!pirTriggered@{pirTriggered}}
+\index{pirTriggered@{pirTriggered}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{pirTriggered}{pirTriggered}}
+{\footnotesize\ttfamily \label{group__global__variables_ga08f21ab73f5c35d00fe7798013d79f43} 
+volatile bool pir\+Triggered = false}
+
+
+
+ISR flag\+: PIR sensor triggered. 
+
+\Hypertarget{group__global__variables_ga7e778ae3df12a943f80592d917cd4f93}\index{Global Variables@{Global Variables}!stopButtonPressed@{stopButtonPressed}}
+\index{stopButtonPressed@{stopButtonPressed}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{stopButtonPressed}{stopButtonPressed}}
+{\footnotesize\ttfamily \label{group__global__variables_ga7e778ae3df12a943f80592d917cd4f93} 
+volatile bool stop\+Button\+Pressed = false}
+
+
+
+ISR flag\+: Emergency stop button pressed. 
+
+\Hypertarget{group__global__variables_gad33d98fbd669c099421558760fd79a80}\index{Global Variables@{Global Variables}!temperatureDataValid@{temperatureDataValid}}
+\index{temperatureDataValid@{temperatureDataValid}!Global Variables@{Global Variables}}
+\doxysubsubsection{\texorpdfstring{temperatureDataValid}{temperatureDataValid}}
+{\footnotesize\ttfamily \label{group__global__variables_gad33d98fbd669c099421558760fd79a80} 
+bool temperature\+Data\+Valid = false}
+
+
+
+True if temperature data is valid. 
+
